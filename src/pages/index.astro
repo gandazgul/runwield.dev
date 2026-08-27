@@ -1,0 +1,301 @@
+---
+import "@fontsource-variable/outfit";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/600.css";
+import "../styles/global.css";
+
+const betaFormAction = import.meta.env.PUBLIC_BETA_FORM_ACTION || "mailto:beta@runwield.dev";
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="theme-color" content="#0B1020"/>
+    <meta name="description"
+          content="RunWield turns a rough idea into a collaborative Plan, deliberate execution, and validation you can trust."/>
+    <link rel="canonical" href={canonical}/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="RunWield · Let AI agents make code changes without losing engineering control."/>
+    <meta property="og:description" content="Rough idea → collaborative Plan → deliberate execution → validation."/>
+    <meta property="og:image" content="https://runwield.dev/social-card.svg"/>
+    <meta property="og:url" content={canonical}/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <title>RunWield · Let agents change code. Keep engineering control.</title>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-hero-item>
+    <a class="brand" href="#top" aria-label="RunWield home">
+        <img src="/logo.svg" alt="" width="42" height="33"/>
+        <span>RunWield</span>
+    </a>
+    <nav aria-label="Primary navigation">
+        <a href="#flow">How it works</a>
+        <a href="#planning">Planning</a>
+        <a href="#proof">Proof before done</a>
+        <a href="#beta">Try it now</a>
+    </nav>
+</header>
+
+<main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+            <h1 id="hero-title" class="hero-title">
+                <span class="hero-line"><span>Let AI agents make</span></span>
+                <span class="hero-line"><span>code changes without</span></span>
+                <span class="hero-line hero-line-accent"><span>losing engineering control.</span></span>
+            </h1>
+            <div class="hero-flow" data-hero-item
+                 aria-label="Rough idea to collaborative Plan to deliberate execution to validation">
+                <span>Rough idea</span>
+                <i aria-hidden="true">→</i>
+                <span>Plan</span>
+                <i aria-hidden="true">→</i>
+                <span>execution</span>
+                <i aria-hidden="true">→</i>
+                <span>validation</span>
+                <i aria-hidden="true">→</i>
+                <span>record</span>
+                <i aria-hidden="true">→</i>
+                <span>better planning</span>
+            </div>
+            <div class="hero-support" data-hero-item>
+                <p>RunWield keeps you and your agents aligned from the first question to the evidence that proves the
+                    work.</p>
+                <a class="primary-action" href="https://github.com/gandazgul/runwield/issues">Try it with me <span
+                        aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+
+        <figure class="hero-visual" data-hero-item>
+            <div class="image-chrome"><span></span><span></span><span></span><small>RUNWIELD / TUI</small></div>
+            <img src="/images/runwield-tui.png"
+                 alt="RunWield TUI showing its plan-by-default harness, skills, tools, context, and agent router"
+                 width="3024" height="1506" loading="eager" fetchpriority="high"/>
+            <figcaption>The TUI harness keeps context, agents, skills, and execution in one continuous working
+                session.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section class="audience light-section" aria-labelledby="audience-title">
+        <div class="section-heading">
+            <div class="section-index" data-reveal>Built for</div>
+            <h2 id="audience-title" data-reveal>Developers doing changes that deserve a plan.</h2>
+        </div>
+
+        <div class="audience-layout">
+            <p class="audience-lede" data-reveal>For people who want more from agents than faster typing.</p>
+            <ul>
+                <li data-reveal><span>01</span>Experienced developers working in real, existing codebases</li>
+                <li data-reveal><span>02</span>Teams learning where agents should collaborate and where they can run
+                </li>
+                <li data-reveal><span>03</span>Anyone turning ambiguous product or engineering work into validated
+                    change
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="workflow section-shell" id="flow" aria-labelledby="workflow-title">
+        <div class="section-heading">
+            <div class="section-index" data-reveal>How it works</div>
+            <h2 id="workflow-title" data-reveal>Most coding harnesses optimize for getting an agent typing as fast as
+                possible.</h2>
+            <div class="workflow-copy" data-reveal>
+                <p>Chat, and hope.</p>
+                <p>RunWield does it differently and it gets better over time.</p>
+            </div>
+        </div>
+
+        <figure class="workflow-image" data-reveal>
+            <img src="/images/how-it-works-loop.png"
+                 alt="RunWield workflow: a rough idea feeds a continuous loop from collaborative Plan through deliberate execution, validation, Record, and using records to plan better"
+                 width="1672" height="941" loading="lazy"/>
+        </figure>
+    </section>
+
+      <section class="planning light-section" id="planning" aria-labelledby="planning-title">
+        <div class="planning-heading">
+            <div class="section-index" data-reveal>Collaborative planning</div>
+            <h2 id="planning-title" data-reveal>Planning gets better when everyone can point at the same thing.</h2>
+            <p data-reveal>A Plan is not ceremony. It is the shared working surface where intent becomes specific enough
+                for agents to act without guessing.</p>
+        </div>
+
+        <figure class="product-image" data-reveal>
+            <div class="image-chrome"><span></span><span></span><span></span><small>RUNWIELD / PLAN REVIEW</small></div>
+            <img src="/images/plan-review.png"
+                 alt="RunWield Plan Review showing a plan, table of contents, inline annotation, execution agent, collaboration mode, and approval action"
+                 width="3024" height="1658" loading="lazy"/>
+            <figcaption>
+                <span>Plan Review surface</span>
+                <span>Annotate, redline, attach context, choose how the work should run, and keep the Plan beside execution.</span>
+            </figcaption>
+        </figure>
+    </section>
+
+    <section class="proof light-section" id="proof" aria-labelledby="proof-title">
+        <div class="section-index" data-reveal>Proof before done</div>
+        <div class="proof-layout">
+            <div class="proof-intro">
+                <h2 id="proof-title" data-reveal>The agent said it’s done. RunWield demands proof.</h2>
+            </div>
+            <ol class="proof-list">
+                <li data-reveal><span>01</span>
+                    <div><strong>Mechanical validation</strong>
+                        <p>Tests, types, lint, formatting, and project-specific checks run automatically. Failures go
+                            back through automatic repair.</p></div>
+                </li>
+                <li data-reveal><span>02</span>
+                    <div><strong>Automated LLM reviewer</strong>
+                        <p>An independent reviewer compares the implementation with the Plan. Material findings trigger
+                            another repair pass.</p></div>
+                </li>
+                <li data-reveal><span>03</span>
+                    <div><strong>Human review, guided</strong>
+                        <p>Inspect the diff, follow review cues, annotate exact lines, and approve only when the
+                            evidence supports the result.</p></div>
+                </li>
+            </ol>
+        </div>
+
+        <figure class="review-image" data-reveal>
+            <div class="image-chrome"><span></span><span></span><span></span><small>RUNWIELD / CODE REVIEW</small></div>
+            <img src="/images/code-review.png"
+                 alt="RunWield Code Review showing a side-by-side diff, changed files, inline annotation, Guided Review status, and approval action"
+                 width="1920" height="910" loading="lazy"/>
+            <figcaption>
+                <span>Current Code Review surface</span>
+                <span>Review the exact change, annotate the diff, and keep feedback and repair inside the same workflow.</span>
+            </figcaption>
+        </figure>
+    </section>
+
+    <section class="beta section-shell" id="beta" aria-labelledby="beta-title">
+        <div class="beta-intro">
+            <div class="section-index" data-reveal>Try it with me</div>
+            <h2 id="beta-title" data-reveal>Help shape a better way to build with agents.</h2>
+            <p data-reveal>We’re looking for experienced developers using AI on real codebases.</p>
+        </div>
+
+        <form class="beta-form" action={betaFormAction} method="post" data-beta-form data-reveal>
+            <div class="field-row">
+                <label>Name<input name="name" autocomplete="name" required/></label>
+                <label>Email<input name="email" type="email" autocomplete="email" required/></label>
+            </div>
+            <div class="field-row">
+                <label>Role<input name="role" autocomplete="organization-title" required/></label>
+                <label>Repo or team size<input name="team_size" placeholder="e.g. 8 developers, 250k LOC"
+                                               required/></label>
+            </div>
+            <label>AI coding tools you use<input name="tools" placeholder="Claude Code, Codex, Cursor…"
+                                                 required/></label>
+            <label>Where does your current agent workflow break down?<textarea name="pain" rows="4" required></textarea></label>
+            <div class="form-footer">
+                <p>Your context helps us find the right early users. No mailing list noise.</p>
+                <button class="primary-action" type="submit">Try it with me <span aria-hidden="true">↗</span></button>
+            </div>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+            <div class="form-delivery" data-form-delivery hidden>
+                <div>
+                    <strong>Email app didn’t open?</strong>
+                    <p>Open it again, or copy the prepared request and send it to <a href="mailto:beta@runwield.dev">beta@runwield.dev</a>.
+                    </p>
+                </div>
+                <div class="delivery-actions">
+                    <a class="secondary-action" data-email-link href="mailto:beta@runwield.dev">Open email again <span
+                            aria-hidden="true">↗</span></a>
+                    <button class="secondary-action" type="button" data-copy-request>Copy request <span
+                            aria-hidden="true">⧉</span></button>
+                </div>
+                <label>Prepared request<textarea data-request-text rows="10" readonly></textarea></label>
+            </div>
+        </form>
+    </section>
+</main>
+
+<footer class="site-footer" data-reveal>
+    <a class="brand" href="#top" aria-label="RunWield home">
+        <img src="/logo.svg" alt="" width="42" height="33"/>
+        <span>RunWield</span>
+    </a>
+    <p>A plan-by-default coding harness.</p>
+    <div><a href="https://github.com/gandazgul/runwield">GitHub</a><span>© {new Date().getFullYear()} RunWield</span>
+    </div>
+</footer>
+
+<script>
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = document.querySelectorAll("[data-reveal]");
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else {
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                currentObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px" });
+
+        revealItems.forEach((item) => observer.observe(item));
+    }
+
+    const betaForm = document.querySelector("[data-beta-form]");
+    betaForm?.addEventListener("submit", (event) => {
+        if (!(betaForm instanceof HTMLFormElement) || !betaForm.action.startsWith("mailto:")) return;
+        event.preventDefault();
+
+        const data = new FormData(betaForm);
+        const lines = [
+            `Name: ${data.get("name")}`,
+            `Email: ${data.get("email")}`,
+            `Role: ${data.get("role")}`,
+            `Repo or team size: ${data.get("team_size")}`,
+            `AI coding tools: ${data.get("tools")}`,
+            "",
+            "Where the current agent workflow breaks down:",
+            `${data.get("pain")}`,
+        ];
+        const subject = encodeURIComponent("Try RunWield with me");
+        const body = encodeURIComponent(lines.join("\n"));
+        const emailUrl = `${betaForm.action}?subject=${subject}&body=${body}`;
+
+        const status = document.querySelector("[data-form-status]");
+        const delivery = document.querySelector("[data-form-delivery]");
+        const emailLink = document.querySelector("[data-email-link]");
+        const requestText = document.querySelector("[data-request-text]");
+        if (emailLink instanceof HTMLAnchorElement) emailLink.href = emailUrl;
+        if (requestText instanceof HTMLTextAreaElement) requestText.value = lines.join("\n");
+        if (delivery instanceof HTMLElement) delivery.hidden = false;
+        if (status) status.textContent = "Request ready. Open your email app or copy it below.";
+    });
+
+    const copyRequest = document.querySelector("[data-copy-request]");
+    copyRequest?.addEventListener("click", async () => {
+        const requestText = document.querySelector("[data-request-text]");
+        const status = document.querySelector("[data-form-status]");
+        if (!(requestText instanceof HTMLTextAreaElement)) return;
+
+        try {
+            await navigator.clipboard.writeText(requestText.value);
+        } catch {
+            requestText.focus();
+            requestText.select();
+            if (status) status.textContent = "Request selected. Press ⌘C or Ctrl+C, then send it to beta@runwield.dev.";
+            return;
+        }
+
+        if (status) status.textContent = "Request copied. Send it to beta@runwield.dev.";
+    });
+</script>
+</body>
+</html>

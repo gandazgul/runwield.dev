@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0B1020"/>
+  <path d="M0 0H1200V630H0Z" fill="url(#glow)"/>
+  <g transform="translate(72 70) scale(1.15)" fill="#85cbbf">
+    <path d="M -5,-5 H 13 L 25.550023,52 37,20 H 55 L 66.457386,52 79,-5 H 97 L 75,95 H 55 L 46,71 37,95 H 17 Z"/>
+    <rect x="105" y="75" width="20" height="20"/>
+  </g>
+  <text x="76" y="335" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="82" font-weight="700" letter-spacing="-3">Let agents change code.</text>
+  <text x="76" y="425" fill="#85CBBF" font-family="Arial, sans-serif" font-size="82" font-weight="700" letter-spacing="-3">Keep review in control.</text>
+  <text x="80" y="522" fill="#94A3B8" font-family="monospace" font-size="22" letter-spacing="2">RUNWIELD.DEV · REVIEW GATES FOR CODING AGENTS</text>
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(930 110) rotate(138) scale(560 460)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17324A" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#0B1020" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
