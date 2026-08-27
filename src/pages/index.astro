@@ -20,12 +20,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
     <link rel="describedby" href="llms.txt"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="RunWield · Let AI agents make code changes without losing engineering control."/>
-    <meta property="og:description" content="Rough idea → collaborative Plan → deliberate execution → validation."/>
+    <meta property="og:title" content="RunWield | Let AI agents make code changes without losing engineering control."/>
+    <meta property="og:description" content="Rough idea to collaborative Plan to deliberate execution to validation."/>
     <meta property="og:image" content="https://runwield.dev/social-card.svg"/>
     <meta property="og:url" content={canonical}/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <title>RunWield · Let agents change code. Keep engineering control.</title>
+    <title>RunWield | Let agents change code. Keep engineering control.</title>
     <script is:inline>
         if (!window.location.hash) {
             history.scrollRestoration = "manual";
@@ -66,29 +66,30 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <div class="hero-grid" aria-hidden="true"></div>
         <div class="hero-copy">
             <h1 id="hero-title" class="hero-title">
-                <span class="hero-line"><span>Let AI agents make</span></span>
-                <span class="hero-line"><span>code changes without</span></span>
-                <span class="hero-line hero-line-accent"><span>losing engineering control.</span></span>
+                <span class="hero-semantic-title">Let AI agents make code changes without losing engineering control.</span>
+                <span class="hero-line" aria-hidden="true"><span>Let AI agents make</span></span>
+                <span class="hero-line" aria-hidden="true"><span>code changes without</span></span>
+                <span class="hero-line hero-line-accent" aria-hidden="true"><span>losing engineering control.</span></span>
             </h1>
             <div class="hero-flow" data-hero-item
                  aria-label="Rough idea to collaborative Plan to deliberate execution to validation">
-                <span>Rough idea</span>
-                <i aria-hidden="true">→</i>
-                <span>Plan</span>
-                <i aria-hidden="true">→</i>
-                <span>execution</span>
-                <i aria-hidden="true">→</i>
-                <span>validation</span>
-                <i aria-hidden="true">→</i>
-                <span>record</span>
-                <i aria-hidden="true">→</i>
+                <span>Rough idea</span>{" "}
+                <i aria-hidden="true">&rarr;</i>{" "}
+                <span>Plan</span>{" "}
+                <i aria-hidden="true">&rarr;</i>{" "}
+                <span>execution</span>{" "}
+                <i aria-hidden="true">&rarr;</i>{" "}
+                <span>validation</span>{" "}
+                <i aria-hidden="true">&rarr;</i>{" "}
+                <span>record</span>{" "}
+                <i aria-hidden="true">&rarr;</i>{" "}
                 <span>better planning</span>
             </div>
             <div class="hero-support" data-hero-item>
                 <p>RunWield keeps you and your agents aligned from the first question to the evidence that proves the
                     work.</p>
                 <a class="primary-action" href="https://github.com/gandazgul/runwield/issues">Try it with me <span
-                        aria-hidden="true">↗</span></a>
+                        aria-hidden="true">&#8599;</span></a>
             </div>
         </div>
 
@@ -112,10 +113,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <div class="audience-layout">
             <p class="audience-lede" data-reveal>For people who want more from agents than faster typing.</p>
             <ul>
-                <li data-reveal><span>01</span>Experienced developers working in real, existing codebases</li>
-                <li data-reveal><span>02</span>Teams learning where agents should collaborate and where they can run
+                <li data-reveal><span>01</span>{" "}Experienced developers working in real, existing codebases</li>
+                <li data-reveal><span>02</span>{" "}Teams learning where agents should collaborate and where they can run
                 </li>
-                <li data-reveal><span>03</span>Anyone turning ambiguous product or engineering work into validated
+                <li data-reveal><span>03</span>{" "}Anyone turning ambiguous product or engineering work into validated
                     change
                 </li>
             </ul>
@@ -154,7 +155,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
                  alt="RunWield Plan Review showing a plan, table of contents, inline annotation, execution agent, collaboration mode, and approval action"
                  width="3024" height="1658" loading="lazy"/>
             <figcaption>
-                <span>Plan Review surface</span>
+                <span>Plan Review surface</span>{" "}
                 <span>Annotate, redline, attach context, choose how the work should run, and keep the Plan beside execution.</span>
             </figcaption>
         </figure>
@@ -164,7 +165,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <div class="section-index" data-reveal>Proof before done</div>
         <div class="proof-layout">
             <div class="proof-intro">
-                <h2 id="proof-title" data-reveal>The agent said it’s done. RunWield demands proof.</h2>
+                <h2 id="proof-title" data-reveal>The agent said it's done. RunWield demands proof.</h2>
             </div>
             <ol class="proof-list">
                 <li data-reveal><span>01</span>
@@ -191,7 +192,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
                  alt="RunWield Code Review showing a side-by-side diff, changed files, inline annotation, Guided Review status, and approval action"
                  width="1920" height="910" loading="lazy"/>
             <figcaption>
-                <span>Current Code Review surface</span>
+                <span>Current Code Review surface</span>{" "}
                 <span>Review the exact change, annotate the diff, and keep feedback and repair inside the same workflow.</span>
             </figcaption>
         </figure>
@@ -201,7 +202,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <div class="beta-intro">
             <div class="section-index" data-reveal>Try it with me</div>
             <h2 id="beta-title" data-reveal>Help shape a better way to build with agents.</h2>
-            <p data-reveal>We’re looking for experienced developers using AI on real codebases.</p>
+            <p data-reveal>We're looking for experienced developers using AI on real codebases.</p>
         </div>
 
         <form class="beta-form" action={betaFormAction} method="post" data-beta-form data-reveal>
@@ -214,25 +215,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
                 <label>Repo or team size<input name="team_size" placeholder="e.g. 8 developers, 250k LOC"
                                                required/></label>
             </div>
-            <label>AI coding tools you use<input name="tools" placeholder="Claude Code, Codex, Cursor…"
+            <label>AI coding tools you use<input name="tools" placeholder="Claude Code, Codex, Cursor..."
                                                  required/></label>
             <label>Where does your current agent workflow break down?<textarea name="pain" rows="4" required></textarea></label>
             <div class="form-footer">
                 <p>Your context helps us find the right early users. No mailing list noise.</p>
-                <button class="primary-action" type="submit">Try it with me <span aria-hidden="true">↗</span></button>
+                <button class="primary-action" type="submit">Try it with me <span aria-hidden="true">&#8599;</span></button>
             </div>
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             <div class="form-delivery" data-form-delivery hidden>
                 <div>
-                    <strong>Email app didn’t open?</strong>
+                    <strong>Email app didn't open?</strong>
                     <p>Open it again, or copy the prepared request and send it to <a href="mailto:beta@runwield.dev">beta@runwield.dev</a>.
                     </p>
                 </div>
                 <div class="delivery-actions">
                     <a class="secondary-action" data-email-link href="mailto:beta@runwield.dev">Open email again <span
-                            aria-hidden="true">↗</span></a>
+                            aria-hidden="true">&#8599;</span></a>
                     <button class="secondary-action" type="button" data-copy-request>Copy request <span
-                            aria-hidden="true">⧉</span></button>
+                            aria-hidden="true">&#10697;</span></button>
                 </div>
                 <label>Prepared request<textarea data-request-text rows="10" readonly></textarea></label>
             </div>
@@ -246,7 +247,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <span>RunWield</span>
     </a>
     <p>A plan-by-default coding harness.</p>
-    <div><a href="https://github.com/gandazgul/runwield">GitHub</a><span>© {new Date().getFullYear()} RunWield</span>
+    <div><a href="https://github.com/gandazgul/runwield">GitHub</a><span>&copy; {new Date().getFullYear()} RunWield</span>
     </div>
 </footer>
 
@@ -309,7 +310,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         } catch {
             requestText.focus();
             requestText.select();
-            if (status) status.textContent = "Request selected. Press ⌘C or Ctrl+C, then send it to beta@runwield.dev.";
+            if (status) status.textContent = "Request selected. Press Cmd+C or Ctrl+C, then send it to beta@runwield.dev.";
             return;
         }
 
