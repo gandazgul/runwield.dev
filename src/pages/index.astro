@@ -17,7 +17,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description"
           content="RunWield turns a rough idea into a collaborative Plan, deliberate execution, and validation you can trust."/>
     <link rel="canonical" href={canonical}/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <link rel="describedby" href="llms.txt"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="RunWield · Let AI agents make code changes without losing engineering control."/>
     <meta property="og:description" content="Rough idea → collaborative Plan → deliberate execution → validation."/>
@@ -25,13 +26,31 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical}/>
     <meta name="twitter:card" content="summary_large_image"/>
     <title>RunWield · Let agents change code. Keep engineering control.</title>
+    <script is:inline>
+        if (!window.location.hash) {
+            history.scrollRestoration = "manual";
+
+            const resetInitialScroll = () => {
+                const root = document.documentElement;
+                const previousBehavior = root.style.scrollBehavior;
+                root.style.scrollBehavior = "auto";
+                window.scrollTo(0, 0);
+                root.style.scrollBehavior = previousBehavior;
+            };
+
+            resetInitialScroll();
+            window.addEventListener("pageshow", resetInitialScroll, { once: true });
+            window.addEventListener("load", resetInitialScroll, { once: true });
+            document.fonts?.ready.then(resetInitialScroll);
+        }
+    </script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header" data-hero-item>
     <a class="brand" href="#top" aria-label="RunWield home">
-        <img src="/logo.svg" alt="" width="42" height="33"/>
+        <img src="logo.svg" alt="" width="42" height="33"/>
         <span>RunWield</span>
     </a>
     <nav aria-label="Primary navigation">
@@ -75,7 +94,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
         <figure class="hero-visual" data-hero-item>
             <div class="image-chrome"><span></span><span></span><span></span><small>RUNWIELD / TUI</small></div>
-            <img src="/images/runwield-tui.png"
+            <img src="images/runwield-tui.png"
                  alt="RunWield TUI showing its plan-by-default harness, skills, tools, context, and agent router"
                  width="3024" height="1506" loading="eager" fetchpriority="high"/>
             <figcaption>The TUI harness keeps context, agents, skills, and execution in one continuous working
@@ -115,7 +134,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         </div>
 
         <figure class="workflow-image" data-reveal>
-            <img src="/images/how-it-works-loop.png"
+            <img src="images/how-it-works-loop.png"
                  alt="RunWield workflow: a rough idea feeds a continuous loop from collaborative Plan through deliberate execution, validation, Record, and using records to plan better"
                  width="1672" height="941" loading="lazy"/>
         </figure>
@@ -131,7 +150,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
         <figure class="product-image" data-reveal>
             <div class="image-chrome"><span></span><span></span><span></span><small>RUNWIELD / PLAN REVIEW</small></div>
-            <img src="/images/plan-review.png"
+            <img src="images/plan-review.png"
                  alt="RunWield Plan Review showing a plan, table of contents, inline annotation, execution agent, collaboration mode, and approval action"
                  width="3024" height="1658" loading="lazy"/>
             <figcaption>
@@ -168,7 +187,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
         <figure class="review-image" data-reveal>
             <div class="image-chrome"><span></span><span></span><span></span><small>RUNWIELD / CODE REVIEW</small></div>
-            <img src="/images/code-review.png"
+            <img src="images/code-review.png"
                  alt="RunWield Code Review showing a side-by-side diff, changed files, inline annotation, Guided Review status, and approval action"
                  width="1920" height="910" loading="lazy"/>
             <figcaption>
@@ -223,7 +242,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
 <footer class="site-footer" data-reveal>
     <a class="brand" href="#top" aria-label="RunWield home">
-        <img src="/logo.svg" alt="" width="42" height="33"/>
+        <img src="logo.svg" alt="" width="42" height="33"/>
         <span>RunWield</span>
     </a>
     <p>A plan-by-default coding harness.</p>

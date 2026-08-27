@@ -1,0 +1,33 @@
+# RunWield
+
+> RunWield is a plan- and lifecycle-centered coding harness that turns a rough idea into a collaborative Plan, deliberate execution, validation, and a durable Work Record.
+
+RunWield is for developers using AI on real codebases where intent, risk, and proof matter more than typing speed. It is not a pull-request review bot or an autonomous vibe-coding tool. Its current public surfaces include the `wld` CLI and TUI, browser-based Plan Review, and guided Code Review.
+
+Core workflow: rough idea -> collaborative Plan -> deliberate execution -> validation -> Work Record -> better future planning.
+
+RunWield is source-available and free to use, but it is not open source yet. Consult the repository license before redistributing or modifying it.
+
+## Product
+
+- [RunWield README](https://raw.githubusercontent.com/gandazgul/runwield/main/README.md): Product overview, installation, workflow, architecture, current status, and license summary.
+- [Quickstart](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/quickstart.md): Install RunWield, connect a model provider, initialize a project, and run the first task.
+- [Documentation index](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/index.md): Entry point for the complete RunWield documentation.
+
+## Workflows
+
+- [Plans and workflows](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/workflows.md): How RunWield classifies work, creates Plans, executes approved changes, validates results, and records outcomes.
+- [Collaboration](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/collaboration.md): Human-agent collaboration modes and review checkpoints.
+- [Settings](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/settings.md): Configuration and model-provider settings.
+- [Customization](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/customization.md): Project and user customization, agents, prompts, skills, and themes.
+- [Troubleshooting](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/troubleshooting.md): Common installation and runtime problems.
+
+## Try RunWield
+
+- [RunWield issues](https://github.com/gandazgul/runwield/issues): Ask a question, report a problem, or request guided early access.
+- [Email beta@runwield.dev](mailto:beta@runwield.dev): Contact the RunWield beta directly.
+
+## Optional
+
+- [RunWield source repository](https://github.com/gandazgul/runwield): Source, releases, issues, and contribution information.
+- [Brand-site source](https://github.com/gandazgul/runwield.dev): Source for the public RunWield website.
