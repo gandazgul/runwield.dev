@@ -55,9 +55,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </a>
     <nav aria-label="Primary navigation">
         <a href="#flow">How it works</a>
-        <a href="#planning">Planning</a>
-        <a href="#proof">Proof before done</a>
-        <a href="#beta">Try it now</a>
+        <a href="https://github.com/gandazgul/runwield/blob/main/docs/index.md">Docs</a>
+        <a href="https://github.com/gandazgul/runwield/releases/latest">Latest release</a>
+        <a href="#beta">Try it with me</a>
     </nav>
 </header>
 
@@ -88,7 +88,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             <div class="hero-support" data-hero-item>
                 <p>RunWield keeps you and your agents aligned from the first question to the evidence that proves the
                     work.</p>
-                <a class="primary-action" href="https://github.com/gandazgul/runwield/issues">Try it with me <span
+                <a class="primary-action" href="#beta">Try it with me <span
                         aria-hidden="true">&#8599;</span></a>
             </div>
         </div>
@@ -206,6 +206,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         </div>
 
         <form class="beta-form" action={betaFormAction} method="post" data-beta-form data-reveal>
+            <div class="install-prompt">
+                <div class="install-prompt-heading">
+                    <strong>Install in 30 seconds</strong>
+                    <span>Double-click the command to select it</span>
+                </div>
+                <div class="install-command-shell">
+                    <code data-install-command tabindex="0">curl -fsSL https://raw.githubusercontent.com/gandazgul/runwield/main/install.sh | bash</code>
+                    <button type="button" data-copy-install>Copy</button>
+                </div>
+                <p class="install-status" data-install-status role="status" aria-live="polite"></p>
+            </div>
             <div class="field-row">
                 <label>Name<input name="name" autocomplete="name" required/></label>
                 <label>Email<input name="email" type="email" autocomplete="email" required/></label>
@@ -247,7 +258,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <span>RunWield</span>
     </a>
     <p>A plan-by-default coding harness.</p>
-    <div><a href="https://github.com/gandazgul/runwield">GitHub</a><span>&copy; {new Date().getFullYear()} RunWield</span>
+    <div><a href="https://github.com/gandazgul/runwield">GitHub</a><a
+            href="https://github.com/gandazgul/runwield/blob/main/docs/index.md">Docs</a><span>&copy; {new Date().getFullYear()} RunWield</span>
     </div>
 </footer>
 
@@ -315,6 +327,35 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         }
 
         if (status) status.textContent = "Request copied. Send it to beta@runwield.dev.";
+    });
+
+    const installCommand = document.querySelector("[data-install-command]");
+    const copyInstall = document.querySelector("[data-copy-install]");
+    const installStatus = document.querySelector("[data-install-status]");
+
+    const selectInstallCommand = () => {
+        if (!(installCommand instanceof HTMLElement)) return;
+        const range = document.createRange();
+        const selection = window.getSelection();
+        if (!selection) return;
+        range.selectNodeContents(installCommand);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    };
+
+    installCommand?.addEventListener("dblclick", selectInstallCommand);
+
+    copyInstall?.addEventListener("click", async () => {
+        const command = installCommand?.textContent?.trim();
+        if (!command) return;
+
+        try {
+            await navigator.clipboard.writeText(command);
+            if (installStatus) installStatus.textContent = "Install command copied.";
+        } catch {
+            selectInstallCommand();
+            if (installStatus) installStatus.textContent = "Command selected. Press Cmd+C or Ctrl+C to copy.";
+        }
     });
 </script>
 </body>
