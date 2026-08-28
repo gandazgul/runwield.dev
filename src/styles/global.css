@@ -253,7 +253,7 @@ figure { margin: 0; }
 .product-image figcaption, .review-image figcaption { display: grid; grid-template-columns: .65fr 1.35fr; gap: 30px; border-top: 1px solid var(--rw-border); padding: 18px; color: var(--rw-text-muted); font-size: .82rem; }
 .product-image figcaption span:first-child, .review-image figcaption span:first-child { color: var(--rw-logo); font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
 
-.proof-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9vw; margin-top: clamp(65px, 9vw, 120px); align-items: start; }
+.proof-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9vw; margin-top: 1vw; align-items: start; }
 .proof-intro { position: sticky; top: 40px; }
 .proof h2, .audience-lede { max-width: 10ch; font-size: clamp(3.15rem, 5.9vw, 6.3rem); }
 .proof-intro > p { max-width: 39ch; margin: 30px 0 0; font-size: 1.12rem; }
@@ -264,7 +264,7 @@ figure { margin: 0; }
 .proof-list p { max-width: 51ch; margin: 5px 0 0; color: rgba(19, 33, 41, .72); }
 .review-image { background: #080d17; box-shadow: 0 38px 100px rgba(19, 33, 41, .24); }
 
-.audience-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 8vw; margin-top: clamp(70px, 9vw, 130px); align-items: start; }
+.audience-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 8vw; margin-top: 1vw; align-items: start; }
 .audience-lede { position: sticky; top: 40px; color: var(--rw-text); text-wrap: balance; }
 .audience ul { border-color: var(--rw-border); }
 .audience li { display: grid; grid-template-columns: 58px 1fr; gap: 20px; border-bottom: 1px solid var(--rw-border); padding: 26px 0; color: var(--rw-text); font-size: clamp(1.18rem, 2vw, 1.7rem); }
