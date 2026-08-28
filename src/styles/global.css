@@ -142,7 +142,7 @@ figure { margin: 0; }
   gap: 10px;
   color: var(--rw-text-muted);
   font-family: var(--font-mono);
-  font-size: .72rem;
+  font-size: 1.1rem;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
