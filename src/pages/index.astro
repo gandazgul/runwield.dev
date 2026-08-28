@@ -93,25 +93,32 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             </div>
         </div>
 
-        <figure class="hero-visual" data-hero-item>
-            <div class="image-chrome"><span></span><span></span><span></span><small>RUNWIELD / TUI</small></div>
-            <img src="images/runwield-tui.png"
-                 alt="RunWield TUI showing its plan-by-default harness, skills, tools, context, and agent router"
-                 width="3024" height="1506" loading="eager" fetchpriority="high"/>
-            <figcaption>The TUI harness keeps context, agents, skills, and execution in one continuous working
-                session.
-            </figcaption>
+    </section>
+
+    <section class="workflow section-shell" id="flow" aria-labelledby="workflow-title">
+        <div class="section-heading">
+            <div class="section-index" data-reveal>How it works</div>
+            <h2 id="workflow-title" data-reveal>Introducing <span>RunWield</span></h2>
+            <div class="workflow-copy" data-reveal>
+                <h3 class="workflow-secondary">From chat and hope, to plan and prove.</h3>
+                <p class="workflow-detail"><strong>Finally, a coding harness optimized for more than just getting an
+                    agent spitting out code as fast as possible.</strong></p>
+            </div>
+        </div>
+
+        <figure class="workflow-image" data-reveal>
+            <img src="images/how-it-works-loop.png"
+                 alt="RunWield workflow: a rough idea feeds a continuous loop from collaborative Plan through deliberate execution, validation, Record, and using records to plan better"
+                 width="1672" height="941" loading="lazy"/>
         </figure>
     </section>
 
     <section class="audience light-section" aria-labelledby="audience-title">
-        <div class="section-heading">
-            <div class="section-index" data-reveal>Built for</div>
-            <h2 id="audience-title" data-reveal>Developers doing changes that deserve a plan.</h2>
-        </div>
+        <div class="section-index" data-reveal>Built for</div>
 
         <div class="audience-layout">
-            <p class="audience-lede" data-reveal>For people who want more from agents than faster typing.</p>
+            <h2 id="audience-title" class="audience-lede" data-reveal>Engineers who want more from agents than faster
+                code generation.</h2>
             <ul>
                 <li data-reveal><span>01</span>{" "}Experienced developers working in real, existing codebases</li>
                 <li data-reveal><span>02</span>{" "}Teams learning where agents should collaborate and where they can run
@@ -121,24 +128,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
                 </li>
             </ul>
         </div>
-    </section>
-
-    <section class="workflow section-shell" id="flow" aria-labelledby="workflow-title">
-        <div class="section-heading">
-            <div class="section-index" data-reveal>How it works</div>
-            <h2 id="workflow-title" data-reveal>Most coding harnesses optimize for getting an agent typing as fast as
-                possible.</h2>
-            <div class="workflow-copy" data-reveal>
-                <p>Chat, and hope.</p>
-                <p>RunWield does it differently and it gets better over time.</p>
-            </div>
-        </div>
-
-        <figure class="workflow-image" data-reveal>
-            <img src="images/how-it-works-loop.png"
-                 alt="RunWield workflow: a rough idea feeds a continuous loop from collaborative Plan through deliberate execution, validation, Record, and using records to plan better"
-                 width="1672" height="941" loading="lazy"/>
-        </figure>
     </section>
 
       <section class="planning light-section" id="planning" aria-labelledby="planning-title">
@@ -208,7 +197,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <form class="beta-form" action={betaFormAction} method="post" data-beta-form data-reveal>
             <div class="install-prompt">
                 <div class="install-prompt-heading">
-                    <strong>Install in 30 seconds</strong>
+                    <h3>Install in 30 seconds</h3>
                 </div>
                 <div class="install-command-shell">
                     <code data-install-command tabindex="0">curl -fsSL https://raw.githubusercontent.com/gandazgul/runwield/main/install.sh | bash</code>
@@ -216,6 +205,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
                 </div>
                 <p class="install-status" data-install-status role="status" aria-live="polite"></p>
             </div>
+            <h3 class="form-heading">Reach out</h3>
             <div class="field-row">
                 <label>Name<input name="name" autocomplete="name" required/></label>
                 <label>Email<input name="email" type="email" autocomplete="email" required/></label>
@@ -279,6 +269,38 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
         revealItems.forEach((item) => observer.observe(item));
     }
+
+    const workflowSection = document.querySelector(".workflow");
+    const desktopWorkflow = window.matchMedia("(min-width: 901px)");
+    let workflowFrame = 0;
+
+    const updateWorkflowPosition = () => {
+        workflowFrame = 0;
+        if (!(workflowSection instanceof HTMLElement)) return;
+
+        if (!desktopWorkflow.matches) {
+            workflowSection.style.removeProperty("opacity");
+            workflowSection.style.removeProperty("transform");
+            workflowSection.style.removeProperty("will-change");
+            return;
+        }
+
+        const progress = reducedMotion ? Number(window.scrollY > 8) : Math.min(Math.max(window.scrollY / 360, 0), 1);
+        workflowSection.style.opacity = `${progress}`;
+        workflowSection.style.transform = reducedMotion ? "none" : `translate3d(0, ${(1 - progress) * 140}px, 0)`;
+        workflowSection.style.willChange = progress > 0 && progress < 1 ? "transform, opacity" : "";
+    };
+
+    const requestWorkflowPosition = () => {
+        if (workflowFrame) return;
+        workflowFrame = window.requestAnimationFrame(updateWorkflowPosition);
+    };
+
+    updateWorkflowPosition();
+    window.addEventListener("scroll", requestWorkflowPosition, { passive: true });
+    window.addEventListener("resize", requestWorkflowPosition, { passive: true });
+    window.addEventListener("load", requestWorkflowPosition, { once: true });
+    window.addEventListener("pageshow", requestWorkflowPosition, { once: true });
 
     const betaForm = document.querySelector("[data-beta-form]");
     betaForm?.addEventListener("submit", (event) => {

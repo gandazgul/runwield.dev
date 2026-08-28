@@ -227,14 +227,23 @@ figure { margin: 0; }
 
 .light-section { background: var(--rw-light); color: var(--rw-light-text); }
 .light-section .section-index { color: var(--rw-light-accent); }
-.proof h2, .audience h2 { margin: 0; font-size: clamp(3.4rem, 7.3vw, 8rem); font-weight: 620; letter-spacing: -.065em; line-height: .85; }
+.proof h2, .audience-lede { margin: 0; font-size: clamp(3.4rem, 7.3vw, 8rem); font-weight: 620; letter-spacing: -.065em; line-height: .85; }
 
 .workflow .section-heading h2 { max-width: 18ch; font-size: clamp(2.7rem, 5vw, 5.4rem); }
-.workflow-copy { grid-column: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; border-top: 1px solid var(--rw-border); padding-top: 22px; }
-.workflow-copy p { margin: 0; }
-.workflow-copy p:first-child { color: var(--rw-text-strong); font-size: clamp(1.9rem, 3.4vw, 3.5rem); font-weight: 570; letter-spacing: -.04em; line-height: .94; }
-.workflow-copy p:last-child { max-width: 34ch; justify-self: end; color: var(--rw-text-muted); font-size: 1.08rem; }
+.workflow .section-heading h2 span { color: var(--rw-logo); }
+.workflow-copy { grid-column: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; border-top: 1px solid var(--rw-border); padding-top: 24px; }
+.workflow-secondary { max-width: 15ch; margin: 0; color: var(--rw-text-strong); font-size: clamp(2rem, 3.6vw, 3.5rem); font-weight: 570; letter-spacing: -.04em; line-height: .96; text-wrap: balance; }
+.workflow-detail { max-width: 34ch; justify-self: end; margin: 0; color: var(--rw-text-muted); font-size: clamp(1rem, 1.25vw, 1.18rem); line-height: 1.5; }
+.workflow-detail strong { color: var(--rw-text); font-weight: 560; }
 .workflow-image { margin-top: clamp(70px, 9vw, 130px); box-shadow: 0 38px 110px rgba(0, 0, 0, .38); }
+
+@media (min-width: 901px) {
+  .workflow { position: relative; z-index: 2; margin-top: -300px; padding-top: clamp(92px, 8vw, 132px); opacity: 0; }
+}
+
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .workflow { transform: translate3d(0, 140px, 0); }
+}
 
 .planning { background: var(--rw-light); color: var(--rw-light-text); }
 .planning-heading h2 { max-width: 13ch; color: var(--rw-light-text); }
@@ -246,7 +255,7 @@ figure { margin: 0; }
 
 .proof-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9vw; margin-top: clamp(65px, 9vw, 120px); align-items: start; }
 .proof-intro { position: sticky; top: 40px; }
-.proof h2 { max-width: 10ch; font-size: clamp(3.15rem, 5.9vw, 6.3rem); }
+.proof h2, .audience-lede { max-width: 10ch; font-size: clamp(3.15rem, 5.9vw, 6.3rem); }
 .proof-intro > p { max-width: 39ch; margin: 30px 0 0; font-size: 1.12rem; }
 .proof-list, .audience ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(19, 33, 41, .28); }
 .proof-list li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; border-bottom: 1px solid rgba(19, 33, 41, .28); padding: 28px 0; }
@@ -255,13 +264,12 @@ figure { margin: 0; }
 .proof-list p { max-width: 51ch; margin: 5px 0 0; color: rgba(19, 33, 41, .72); }
 .review-image { background: #080d17; box-shadow: 0 38px 100px rgba(19, 33, 41, .24); }
 
-.audience h2 { max-width: 13ch; color: var(--rw-text-strong); }
 .audience-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 8vw; margin-top: clamp(70px, 9vw, 130px); align-items: start; }
-.audience-lede { position: sticky; top: 40px; max-width: 28ch; margin: 0; color: var(--rw-text); font-size: clamp(1.25rem, 2.4vw, 2.1rem); line-height: 1.15; }
+.audience-lede { position: sticky; top: 40px; color: var(--rw-text); text-wrap: balance; }
 .audience ul { border-color: var(--rw-border); }
 .audience li { display: grid; grid-template-columns: 58px 1fr; gap: 20px; border-bottom: 1px solid var(--rw-border); padding: 26px 0; color: var(--rw-text); font-size: clamp(1.18rem, 2vw, 1.7rem); }
 .audience li span { color: var(--rw-light-accent); }
-.audience.light-section h2, .audience.light-section .audience-lede { color: var(--rw-light-text); }
+.audience.light-section .audience-lede { color: var(--rw-light-text); }
 .audience.light-section ul { border-color: rgba(19, 33, 41, .28); }
 .audience.light-section li { border-color: rgba(19, 33, 41, .28); color: var(--rw-light-text); }
 
@@ -269,16 +277,17 @@ figure { margin: 0; }
 .beta-intro { position: sticky; top: 42px; }
 .beta-intro h2 { margin-top: 42px; font-size: clamp(3rem, 5vw, 5.5rem); }
 .beta-intro > p { max-width: 34ch; margin: 30px 0 0; color: var(--rw-text-muted); font-size: 1.12rem; }
-.beta-form { display: flex; flex-direction: column; gap: 20px; border-top: 1px solid var(--rw-border); padding-top: 24px; }
-.install-prompt { display: grid; gap: 10px; margin-bottom: 6px; }
-.install-prompt-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
-.install-prompt-heading strong { color: var(--rw-text-strong); font-size: 1.05rem; font-weight: 560; }
+.beta-form { display: flex; flex-direction: column; gap: 20px; }
+.install-prompt { display: grid; gap: 14px; margin-bottom: 6px; }
+.install-prompt-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--rw-border); padding-bottom: 14px; }
+.install-prompt-heading h3, .form-heading { margin: 0; color: var(--rw-text-strong); font-size: 1.05rem; font-weight: 560; }
 .install-prompt-heading span { color: var(--rw-text-muted); font-family: var(--font-mono); font-size: .66rem; letter-spacing: .03em; text-transform: uppercase; }
 .install-command-shell { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: stretch; overflow: hidden; border: 1px solid var(--rw-border); border-radius: var(--rw-radius-control); background: #080d17; }
 .install-command-shell code { display: block; overflow-x: auto; padding: 15px 16px; color: var(--rw-logo); font-family: var(--font-mono); font-size: .76rem; line-height: 1.5; white-space: nowrap; cursor: text; user-select: text; outline: none; }
 .install-command-shell button { min-width: 76px; border: 0; border-left: 1px solid var(--rw-border); background: var(--rw-surface-muted); color: var(--rw-text-strong); font-family: var(--font-mono); font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: background-color 220ms var(--ease-snap), color 220ms var(--ease-snap); }
 .install-command-shell code:focus-visible, .install-command-shell button:focus-visible { outline: 2px solid var(--rw-accent); outline-offset: -2px; }
 .install-status { min-height: 1.2em; margin: 0; color: var(--rw-logo); font-family: var(--font-mono); font-size: .7rem; }
+.form-heading { margin-top: 6px; border-bottom: 1px solid var(--rw-border); padding-bottom: 14px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .beta-form label { display: flex; flex-direction: column; gap: 8px; color: var(--rw-text-muted); font-family: var(--font-mono); font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; }
 .beta-form input, .beta-form textarea { width: 100%; border: 1px solid var(--rw-border); border-radius: var(--rw-radius-control); background: var(--rw-surface); color: var(--rw-text-strong); padding: 12px 13px; outline: none; transition: border-color 260ms var(--ease-snap), background-color 300ms var(--spring-smooth), transform 300ms var(--spring-smooth); }
@@ -312,12 +321,8 @@ figure { margin: 0; }
 @media (hover: hover) and (pointer: fine) {
   .site-header nav a:hover, .site-footer a:not(.brand):hover { color: var(--rw-text-strong); }
   .site-header nav a:hover::after, .site-footer a:not(.brand):hover::after { transform: scaleX(1); transform-origin: left; }
-  .brand:hover img { transform: scale(1.05); }
-  .brand img { transition: transform 280ms var(--ease-snap); }
   .install-command-shell button:hover { background: var(--rw-logo); color: var(--rw-page-bg); }
   .primary-action:hover { transform: translateY(-2px); box-shadow: 0 12px 42px rgba(133, 203, 191, .18); }
-  .hero-visual:hover, .workflow-image:hover, .product-image:hover, .review-image:hover { transform: translateY(-3px); box-shadow: 0 48px 130px rgba(0, 0, 0, .52); }
-  .hero-visual, .workflow-image, .product-image, .review-image { transition: opacity 650ms var(--spring-snappy), transform 650ms var(--spring-snappy), filter 650ms var(--spring-snappy), box-shadow 420ms var(--ease-snap); }
 }
 
 @media (max-width: 900px) {
@@ -326,6 +331,8 @@ figure { margin: 0; }
   .hero-title, .hero-flow, .hero-support, .section-heading h2, .section-heading > p, .workflow-copy, .planning-heading h2, .planning-heading > p { grid-column: 1; }
   .hero-support { max-width: 48ch; }
   .section-heading h2, .planning-heading h2 { margin-top: 30px; }
+  .workflow-copy { grid-template-columns: 1fr; gap: 24px; }
+  .workflow-detail { justify-self: start; }
   .proof-layout, .audience-layout { grid-template-columns: 1fr; }
   .proof-intro, .audience-lede, .beta-intro { position: static; }
   .product-image figcaption, .review-image figcaption { grid-template-columns: 1fr; }
@@ -344,9 +351,7 @@ figure { margin: 0; }
   .hero-visual img { width: 165%; max-width: none; transform: translateX(-6%); }
   .hero-visual figcaption { position: static; max-width: none; border: 0; border-top: 1px solid var(--rw-border); border-radius: 0; background: transparent; }
   .section-shell, .light-section { padding: 78px 20px; }
-  .proof h2, .audience h2 { font-size: clamp(3.1rem, 15.8vw, 5rem); }
-  .workflow-copy { grid-template-columns: 1fr; }
-  .workflow-copy p:last-child { justify-self: start; }
+  .proof h2, .audience-lede { font-size: clamp(3.1rem, 15.8vw, 5rem); }
   .workflow-image { overflow-x: auto; }
   .workflow-image img { width: 180%; max-width: none; }
   .workflow-image::-webkit-scrollbar { height: 6px; }
@@ -372,5 +377,5 @@ figure { margin: 0; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
   [data-reveal] { opacity: 0; transform: none; filter: none; transition: opacity 120ms var(--ease-snap); }
   [data-reveal].is-visible { opacity: 1; }
-  .primary-action:hover, .hero-visual:hover, .workflow-image:hover, .product-image:hover, .review-image:hover { transform: none; }
+  .primary-action:hover { transform: none; }
 }
