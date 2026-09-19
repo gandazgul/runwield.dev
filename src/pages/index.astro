@@ -57,7 +57,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <a href="#flow">How it works</a>
         <a href="https://github.com/gandazgul/runwield/blob/main/docs/index.md">Docs</a>
         <a href="https://github.com/gandazgul/runwield/releases/latest">Latest release</a>
-        <a href="#beta">Try it with me</a>
+        <a class="primary-action" href="#beta">Try it with me <span aria-hidden="true">&#8599;</span></a>
     </nav>
 </header>
 
@@ -85,11 +85,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
                 <i aria-hidden="true">&rarr;</i>{" "}
                 <span>better planning</span>
             </div>
-            <div class="hero-support" data-hero-item>
-                <p>RunWield keeps you and your agents aligned from the first question to the evidence that proves the
-                    work.</p>
-                <a class="primary-action" href="#beta">Try it with me <span
-                        aria-hidden="true">&#8599;</span></a>
+            <div class="hero-support install-prompt" data-hero-item>
+                <p>RunWield runs entirely on your machine. Use any model subscription or API key. No vendor lock-in.</p>
+                <div class="install-command-shell">
+                    <code data-install-command tabindex="0">curl -fsSL https://raw.githubusercontent.com/gandazgul/runwield/main/install.sh | bash</code>
+                    <button type="button" data-copy-install aria-label="Copy install command">Copy</button>
+                </div>
+                <p class="install-status" data-install-status role="status" aria-live="polite"></p>
             </div>
         </div>
 
@@ -107,9 +109,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         </div>
 
         <figure class="workflow-image" data-reveal>
-            <img src="images/how-it-works-loop.png"
-                 alt="RunWield workflow: a rough idea feeds a continuous loop from collaborative Plan through deliberate execution, validation, Record, and using records to plan better"
-                 width="1672" height="941" loading="lazy"/>
+            <video controls playsinline preload="none" width="1920" height="1080"
+                   poster="media/runwield-demo-poster.jpg"
+                   aria-label="90-second RunWield demo: Plan Review, execution, validation, Code Review, and Workspace">
+                <source src="media/runwield-demo.mp4" type="video/mp4"/>
+                <a href="media/runwield-demo.mp4">Watch the 90-second RunWield demo</a>
+            </video>
         </figure>
     </section>
 
@@ -350,33 +355,35 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         if (status) status.textContent = "Request copied. Send it to beta@runwield.dev.";
     });
 
-    const installCommand = document.querySelector("[data-install-command]");
-    const copyInstall = document.querySelector("[data-copy-install]");
-    const installStatus = document.querySelector("[data-install-status]");
+    document.querySelectorAll(".install-prompt").forEach((prompt) => {
+        const installCommand = prompt.querySelector("[data-install-command]");
+        const copyInstall = prompt.querySelector("[data-copy-install]");
+        const installStatus = prompt.querySelector("[data-install-status]");
 
-    const selectInstallCommand = () => {
-        if (!(installCommand instanceof HTMLElement)) return;
-        const range = document.createRange();
-        const selection = window.getSelection();
-        if (!selection) return;
-        range.selectNodeContents(installCommand);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    };
+        const selectInstallCommand = () => {
+            if (!(installCommand instanceof HTMLElement)) return;
+            const range = document.createRange();
+            const selection = window.getSelection();
+            if (!selection) return;
+            range.selectNodeContents(installCommand);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        };
 
-    installCommand?.addEventListener("dblclick", selectInstallCommand);
+        installCommand?.addEventListener("dblclick", selectInstallCommand);
 
-    copyInstall?.addEventListener("click", async () => {
-        const command = installCommand?.textContent?.trim();
-        if (!command) return;
+        copyInstall?.addEventListener("click", async () => {
+            const command = installCommand?.textContent?.trim();
+            if (!command) return;
 
-        try {
-            await navigator.clipboard.writeText(command);
-            if (installStatus) installStatus.textContent = "Install command copied.";
-        } catch {
-            selectInstallCommand();
-            if (installStatus) installStatus.textContent = "Command selected. Press Cmd+C or Ctrl+C to copy.";
-        }
+            try {
+                await navigator.clipboard.writeText(command);
+                if (installStatus) installStatus.textContent = "Install command copied.";
+            } catch {
+                selectInstallCommand();
+                if (installStatus) installStatus.textContent = "Command selected. Press Cmd+C or Ctrl+C to copy.";
+            }
+        });
     });
 </script>
 </body>
