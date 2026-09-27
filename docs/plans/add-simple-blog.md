@@ -21,7 +21,13 @@ createdAt: "2026-09-27"
 origin: "internal"
 userVerifiedAt: null
 targetBranch: "main"
-status: "validated_reviewer"
+status: "validated"
+validatedCommit: "b3910084095b4488e320d2e39c48f06c17bc9fda"
+workRecord:
+  status: "generated"
+  recordId: "d0e60235-5460-4e85-a364-07c270c67c99"
+  path: "docs/work-records/2026-09-27-published-the-first-markdown-blog-article.md"
+  lastAttemptAt: "2026-09-27T15:09:23.611Z"
 ---
 
 # Add a Simple Blog and Publish the First Article
