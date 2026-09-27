@@ -21,7 +21,7 @@ createdAt: "2026-09-27"
 origin: "internal"
 userVerifiedAt: null
 targetBranch: "main"
-status: "implemented"
+status: "validated_reviewer"
 ---
 
 # Add a Simple Blog and Publish the First Article
