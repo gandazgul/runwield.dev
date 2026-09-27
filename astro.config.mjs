@@ -6,7 +6,6 @@ export default defineConfig({
   output: "static",
   trailingSlash: "never",
   build: {
-    assetsPrefix: ".",
     inlineStylesheets: "always",
   },
   integrations: [sitemap()],

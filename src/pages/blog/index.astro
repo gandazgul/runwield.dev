@@ -1,0 +1,30 @@
+---
+import type { MarkdownInstance } from "astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+interface PostFrontmatter {
+    title: string;
+    description: string;
+    publishedDate: string;
+    author: string;
+    authorUrl: string;
+}
+const posts = Object.values(import.meta.glob<MarkdownInstance<PostFrontmatter>>("./*.md", { eager: true }))
+    .filter((post) => post.url)
+    .sort((a, b) => b.frontmatter.publishedDate.localeCompare(a.frontmatter.publishedDate) || a.file.localeCompare(b.file));
+const dateLabel = (date: string) => new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", {
+    timeZone: "UTC", year: "numeric", month: "long", day: "numeric",
+});
+---
+<BlogLayout title="Blog" description="Articles about collaborative planning, AI coding, and validation from RunWield.">
+    <div class="blog-column blog-index">
+        <h1>Blog</h1>
+        <ul class="post-list">
+            {posts.map((post) => <li>
+                <time datetime={post.frontmatter.publishedDate}>{dateLabel(post.frontmatter.publishedDate)}</time>
+                <h2><a href={post.url}>{post.frontmatter.title}</a></h2>
+                <p>{post.frontmatter.description}</p>
+            </li>)}
+        </ul>
+    </div>
+</BlogLayout>

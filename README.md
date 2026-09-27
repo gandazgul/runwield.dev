@@ -15,6 +15,25 @@ deno task build
 deno task preview
 ```
 
+## Publish a blog post
+
+Add one Markdown file in `src/pages/blog/`, for example `src/pages/blog/my-post.md`:
+
+```md
+---
+layout: ../../layouts/BlogPostLayout.astro
+title: "My post title"
+description: "A short summary of the post."
+publishedDate: "2026-09-27"
+author: "Carlos Ravelo"
+authorUrl: "https://github.com/gandazgul"
+---
+
+Write the article here. Do not repeat the title or byline in the body.
+```
+
+The filename sets the URL (`my-post.md` becomes `/blog/my-post`). The blog lists all Markdown posts with the newest `publishedDate` first. It sorts equal dates by filename. Use a quoted ISO date (`YYYY-MM-DD`) and keep it fixed after publication. Run `deno task build` and `deno task preview` to check the generated page and list before publication. The existing GitHub Pages workflow publishes `dist/` when changes reach `main`.
+
 ## Beta form
 
 The default static-site fallback opens a prefilled email to `beta@runwield.dev`. To post submissions to a form service

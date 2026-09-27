@@ -1,0 +1,16 @@
+---
+const isBlog = Astro.url.pathname.startsWith("/blog");
+---
+<header class:list={["site-header", { "blog-header": isBlog }]}>
+    <a class="brand" href="/" aria-label="RunWield home">
+        <img src="/logo.svg" alt="" width="42" height="33"/>
+        <span>RunWield</span>
+    </a>
+    <nav aria-label="Primary navigation">
+        <a href="/#flow">How it works</a>
+        <a href="/blog" aria-current={Astro.url.pathname === "/blog" ? "page" : undefined} class:list={[{ "blog-active": isBlog }]}>Blog</a>
+        <a href="https://docs.runwield.dev">Docs</a>
+        <a href="https://github.com/gandazgul/runwield/releases/latest">Latest release</a>
+        <a class="primary-action" href="/#beta">Try it with me <span aria-hidden="true">&#8599;</span></a>
+    </nav>
+</header>
