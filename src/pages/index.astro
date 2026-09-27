@@ -3,6 +3,8 @@ import "@fontsource-variable/outfit";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/600.css";
 import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 const betaFormAction = import.meta.env.PUBLIC_BETA_FORM_ACTION || "mailto:beta@runwield.dev";
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -17,8 +19,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description"
           content="RunWield turns a rough idea into a collaborative Plan, deliberate execution, and validation you can trust."/>
     <link rel="canonical" href={canonical}/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <link rel="describedby" href="llms.txt"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="describedby" href="/llms.txt"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="RunWield | Let AI agents make code changes without losing engineering control."/>
     <meta property="og:description" content="Rough idea to collaborative Plan to deliberate execution to validation."/>
@@ -48,18 +50,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" data-hero-item>
-    <a class="brand" href="#top" aria-label="RunWield home">
-        <img src="logo.svg" alt="" width="42" height="33"/>
-        <span>RunWield</span>
-    </a>
-    <nav aria-label="Primary navigation">
-        <a href="#flow">How it works</a>
-        <a href="https://docs.runwield.dev">Docs</a>
-        <a href="https://github.com/gandazgul/runwield/releases/latest">Latest release</a>
-        <a class="primary-action" href="#beta">Try it with me <span aria-hidden="true">&#8599;</span></a>
-    </nav>
-</header>
+<SiteHeader />
 
 <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
@@ -246,16 +237,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </section>
 </main>
 
-<footer class="site-footer" data-reveal>
-    <a class="brand" href="#top" aria-label="RunWield home">
-        <img src="logo.svg" alt="" width="42" height="33"/>
-        <span>RunWield</span>
-    </a>
-    <p>A plan-by-default coding harness.</p>
-    <div><a href="https://github.com/gandazgul/runwield">GitHub</a><a
-            href="https://docs.runwield.dev">Docs</a><span>&copy; {new Date().getFullYear()} RunWield</span>
-    </div>
-</footer>
+<SiteFooter />
 
 <script>
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

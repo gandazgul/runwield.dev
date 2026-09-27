@@ -10,6 +10,8 @@ RunWield is source-available and free to use, but it is not open source yet. Con
 
 ## Product
 
+- [Blog](https://runwield.dev/blog): Articles about planning, AI coding, and validation.
+
 - [RunWield README](https://raw.githubusercontent.com/gandazgul/runwield/main/README.md): Product overview, installation, workflow, architecture, current status, and license summary.
 - [Quickstart](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/quickstart.md): Install RunWield, connect a model provider, initialize a project, and run the first task.
 - [Documentation index](https://raw.githubusercontent.com/gandazgul/runwield/main/docs/index.md): Entry point for the complete RunWield documentation.

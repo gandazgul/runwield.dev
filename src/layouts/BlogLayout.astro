@@ -1,0 +1,41 @@
+---
+import "@fontsource-variable/outfit";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/600.css";
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    type?: "website" | "article";
+}
+const { title, description, type = "website" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#0B1020" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="describedby" href="/llms.txt" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://runwield.dev/social-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title} | RunWield</title>
+</head>
+<body class="blog-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader />
+    <main id="main" class="blog-main"><slot /></main>
+    <SiteFooter />
+</body>
+</html>
