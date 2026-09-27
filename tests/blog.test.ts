@@ -52,8 +52,11 @@ Deno.test("index links to the article and shows its date and description", () =>
     assert(index.includes(`<a href="${route}">${title}</a>`), "Index must link to published article");
     assert(index.includes(description), "Index description is missing");
     assert(index.includes('<time datetime="2026-09-27">'), "Index date is missing");
-    assert(article.includes('<a class="back-link" href="/blog">Back to Wield Notes</a>'), "Back to Wield Notes is missing");
+    assert(article.includes('href="/blog"><img src="/mascot/reviewer.svg" width="26" height="36" alt="" aria-hidden="true">Back to Wield Notes</a>'), "Back to Wield Notes with Reviewer is missing");
     assert(index.includes('<h1>Wield Notes</h1>'), "Blog name is missing");
+    assert(index.includes('src="/mascot/reviewer.svg" width="52" height="72" alt="" aria-hidden="true"'), "Blog heading Reviewer is missing");
+    const reviewer = Deno.readTextFileSync("dist/mascot/reviewer.svg");
+    assert(reviewer.includes('shape-rendering="crispEdges"') && !reviewer.includes("animation"), "Reviewer must be a crisp, still SVG");
     assert(index.includes('<p class="blog-subtitle">Engineering judgment in the age of AI.</p>'), "Blog subtitle is missing");
     assert(article.includes('<a href="https://github.com/gandazgul">Carlos Ravelo</a>'), "Approved linked byline is missing");
     assert(article.includes('<time datetime="2026-09-27">'), "Article publication date is missing");

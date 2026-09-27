@@ -18,7 +18,10 @@ const dateLabel = (date: string) => new Date(`${date}T12:00:00Z`).toLocaleDateSt
 ---
 <BlogLayout title="Wield Notes" description="Engineering judgment in the age of AI.">
     <div class="blog-column blog-index">
-        <h1>Wield Notes</h1>
+        <div class="blog-index-heading">
+            <h1>Wield Notes</h1>
+            <img src="/mascot/reviewer.svg" width="52" height="72" alt="" aria-hidden="true" />
+        </div>
         <p class="blog-subtitle">Engineering judgment in the age of AI.</p>
         <ul class="post-list">
             {posts.map((post) => <li>
