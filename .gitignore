@@ -4,6 +4,8 @@ dist/
 node_modules/
 .DS_Store
 .idea/
+.history/
+
 # BEGIN RunWield owned runtime state
 .wld/internal/
 # END RunWield owned runtime state
