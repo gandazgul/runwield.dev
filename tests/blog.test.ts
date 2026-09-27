@@ -52,7 +52,9 @@ Deno.test("index links to the article and shows its date and description", () =>
     assert(index.includes(`<a href="${route}">${title}</a>`), "Index must link to published article");
     assert(index.includes(description), "Index description is missing");
     assert(index.includes('<time datetime="2026-09-27">'), "Index date is missing");
-    assert(article.includes('<a class="back-link" href="/blog">Back to Blog</a>'), "Back to Blog is missing");
+    assert(article.includes('<a class="back-link" href="/blog">Back to Wield Notes</a>'), "Back to Wield Notes is missing");
+    assert(index.includes('<h1>Wield Notes</h1>'), "Blog name is missing");
+    assert(index.includes('<p class="blog-subtitle">Engineering judgment in the age of AI.</p>'), "Blog subtitle is missing");
     assert(article.includes('<a href="https://github.com/gandazgul">Carlos Ravelo</a>'), "Approved linked byline is missing");
     assert(article.includes('<time datetime="2026-09-27">'), "Article publication date is missing");
     for (const page of [index, article]) {
@@ -63,7 +65,7 @@ Deno.test("index links to the article and shows its date and description", () =>
 
 Deno.test("blog metadata and assets resolve from both public URLs", () => {
     for (const [page, path, pageTitle, pageDescription, type] of [
-        [index, "/blog", "Blog", "Articles about collaborative planning, AI coding, and validation from RunWield.", "website"],
+        [index, "/blog", "Wield Notes", "Engineering judgment in the age of AI.", "website"],
         [article, route, title, description, "article"],
     ]) {
         assert(page.includes(`<title>${pageTitle} | RunWield</title>`), `Title missing at ${path}`);

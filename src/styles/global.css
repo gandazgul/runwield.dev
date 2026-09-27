@@ -321,7 +321,8 @@ figure { margin: 0; }
 .blog-main { min-height: 65vh; padding: clamp(64px, 9vw, 120px) 24px 120px; }
 .blog-column { width: min(100%, 68ch); margin-inline: auto; }
 .blog-column h1 { margin: 0; color: var(--rw-text-strong); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 620; letter-spacing: -.035em; line-height: 1.12; text-wrap: balance; }
-.blog-index h1 { margin-bottom: 64px; }
+.blog-index h1 { margin-bottom: 12px; }
+.blog-subtitle { margin: 0 0 64px; color: var(--rw-text-muted); font-size: 1.05rem; line-height: 1.6; }
 .post-list { margin: 0; padding: 0; list-style: none; }
 .post-list li { border-top: 1px solid var(--rw-border); padding: 28px 0 40px; }
 .post-list time, .article-meta { color: var(--rw-text-muted); font-family: var(--font-mono); font-size: .78rem; }
@@ -368,7 +369,7 @@ figure { margin: 0; }
   .site-header nav .primary-action { gap: 8px; padding-inline: 10px; }
   .hero { padding: 180px 16px 24px; }
   .blog-main { padding: 54px 20px 90px; }
-  .blog-index h1 { margin-bottom: 44px; }
+  .blog-subtitle { margin-bottom: 44px; }
   .article-header { margin-bottom: 42px; }
   .hero-title { font-size: clamp(2.72rem, 13.2vw, 4.6rem); line-height: .96; }
   .hero-line > span { width: auto; }

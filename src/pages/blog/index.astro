@@ -16,9 +16,10 @@ const dateLabel = (date: string) => new Date(`${date}T12:00:00Z`).toLocaleDateSt
     timeZone: "UTC", year: "numeric", month: "long", day: "numeric",
 });
 ---
-<BlogLayout title="Blog" description="Articles about collaborative planning, AI coding, and validation from RunWield.">
+<BlogLayout title="Wield Notes" description="Engineering judgment in the age of AI.">
     <div class="blog-column blog-index">
-        <h1>Blog</h1>
+        <h1>Wield Notes</h1>
+        <p class="blog-subtitle">Engineering judgment in the age of AI.</p>
         <ul class="post-list">
             {posts.map((post) => <li>
                 <time datetime={post.frontmatter.publishedDate}>{dateLabel(post.frontmatter.publishedDate)}</time>
