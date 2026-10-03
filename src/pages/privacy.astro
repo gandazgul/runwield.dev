@@ -1,0 +1,110 @@
+---
+import BlogLayout from "../layouts/BlogLayout.astro";
+---
+<BlogLayout title="Privacy Policy"
+    description="RunWield runs locally, keeps Plans, sessions, and credentials on your machine, and collects no telemetry.">
+    <article class="blog-column privacy-policy">
+        <header class="article-header">
+            <h1>Privacy Policy</h1>
+        </header>
+        <div class="article-body">
+            <section aria-labelledby="summary">
+                <h2 id="summary">Summary</h2>
+                <p>This policy covers the RunWield coding harness, the <code>wld</code> CLI, and runwield.dev.
+                    RunWield runs on your machine. Your Plans, sessions, and credentials are stored locally.
+                    RunWield collects no telemetry and operates no cloud service that receives this data.</p>
+                <p>When you use an AI provider, RunWield sends the working context directly to that provider.
+                    The sections below explain those connections and the optional ways you can share data.</p>
+            </section>
+            <section aria-labelledby="local-storage">
+                <h2 id="local-storage">What RunWield stores on your machine</h2>
+                <ul>
+                    <li><code>~/.wld/</code> stores settings in <code>settings.json</code>, credentials in
+                        <code>auth.json</code>, model configuration in <code>models.json</code>, the update cache in
+                        <code>update-check.json</code>, and sharing secrets in <code>collaboration-secrets.json</code>.</li>
+                    <li><code>~/.wld/sessions/</code> stores session transcripts as append-only JSONL files.
+                        These files are plaintext and include prompts, tool results, and file content shown to the model.</li>
+                    <li>Your project's <code>.wld/</code> directory stores runtime state, Plan locks, and staging data.
+                        <code>docs/plans/</code> stores Plans as plain Markdown.
+                        <code>docs/work-records/</code> stores Work Records.</li>
+                    <li>Memories are stored through the locally installed <code>mnemoteca</code> tool.</li>
+                </ul>
+                <p>Delete the files to delete the local data. RunWield does not keep a cloud copy.</p>
+            </section>
+            <section aria-labelledby="credentials">
+                <h2 id="credentials">API keys and sign-in credentials</h2>
+                <p>RunWield stores API keys and OAuth tokens from <code>wld login</code> on your machine in
+                    <code>~/.wld/auth.json</code>. You can also configure API keys in <code>~/.wld/models.json</code>.
+                    These are plaintext files, not encrypted credential stores.</p>
+                <p>RunWield creates <code>auth.json</code> with <code>0600</code> file permissions and its directory
+                    with <code>0700</code> permissions. These restrict access to your account where the operating
+                    system supports these permissions.</p>
+                <p>Your credentials are never sent to RunWield. They are used only to authenticate requests to
+                    the provider they belong to.</p>
+            </section>
+            <section aria-labelledby="ai-providers">
+                <h2 id="ai-providers">What is sent to AI providers</h2>
+                <p>On each model turn, the working context goes directly from your machine to the AI provider
+                    you configured. This context can include prompts, file contents read by tools, edits and diffs,
+                    command output, tool results, and images. Custom providers use the <code>baseUrl</code> you set.</p>
+                <p>RunWield never receives this content. The provider processes it under its own privacy terms.
+                    Review those terms before you send sensitive data.</p>
+            </section>
+            <section aria-labelledby="telemetry">
+                <h2 id="telemetry">No telemetry</h2>
+                <p>RunWield collects no telemetry: no analytics, crash reports, usage pings, or tracking identifiers.
+                    No RunWield-operated endpoint receives your user data.</p>
+            </section>
+            <section aria-labelledby="network">
+                <h2 id="network">Network requests</h2>
+                <p>The CLI automatically checks GitHub Releases for a newer version. This is an unauthenticated
+                    request to GitHub's Releases API, with a local 6-hour cache in <code>~/.wld/update-check.json</code>.
+                    It retrieves release version information and sends no user content or tracking identifier.
+                    GitHub processes the request under its own privacy statement.</p>
+                <p>The following connections occur when you request these operations or use the agent tools:</p>
+                <ul>
+                    <li><code>wld update</code> downloads installers from GitHub Releases with SHA-256 verification.
+                        RunWield does not automatically download or install updates.</li>
+                    <li><code>wld share</code> uploads a session as a secret GitHub Gist through your own
+                        <code>gh</code> CLI. A secret Gist is accessible to anyone with its link.</li>
+                    <li><code>wld remote</code> copies <code>~/.wld</code> to the SSH host you choose over SSH/SFTP.</li>
+                    <li><code>wld install</code> fetches packages from npm or git sources.</li>
+                    <li>Web search and fetch tools use the locally installed <code>ketch</code> tool.
+                        Queries and URLs are sent to the search backends that ketch is configured to use.</li>
+                    <li>The <code>bash</code> tool can run any command your account can run, including network
+                        commands. It is not a sandbox.</li>
+                </ul>
+            </section>
+            <section aria-labelledby="collaboration">
+                <h2 id="collaboration">Optional collaboration</h2>
+                <p>Plan sharing uses a Plan Server that you host yourself, such as with Podman or an OCI container.
+                    There is no default server, and RunWield does not host it.</p>
+                <p>Plan content is encrypted on your machine with AES-256-GCM before upload.
+                    The server stores ciphertext and minimal routing metadata, not plaintext Plan content.</p>
+            </section>
+            <section aria-labelledby="website">
+                <h2 id="website">This website</h2>
+                <p>runwield.dev is a static site hosted on GitHub Pages. It uses no cookies, analytics, or trackers.
+                    GitHub logs standard request data, such as IP addresses and user agents, under
+                    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+                <p>By default, the “Try It With Me” form opens your own email client with a message addressed to
+                    <a href="mailto:beta@runwield.dev">beta@runwield.dev</a>.
+                    We use that email only to reply about the beta.</p>
+            </section>
+            <section aria-labelledby="contact">
+                <h2 id="contact">Changes and contact</h2>
+                <p>Last updated: <time datetime="2026-10-03">October 3, 2026</time>.</p>
+                <p>When this policy changes, we update the date on this page. For privacy questions, email
+                    <a href="mailto:beta@runwield.dev">beta@runwield.dev</a>.</p>
+            </section>
+        </div>
+    </article>
+</BlogLayout>
+<style>
+    .privacy-policy h2 { margin: 2em 0 .75em; color: var(--rw-text-strong); font-size: 1.5em; line-height: 1.25; }
+    .privacy-policy section:first-child h2 { margin-top: 0; }
+    .privacy-policy ul { padding-left: 1.25em; margin-bottom: 1.65em; }
+    .privacy-policy li { margin-bottom: .75em; }
+    .privacy-policy code { font-family: var(--font-mono); font-size: .85em; overflow-wrap: anywhere; }
+    .privacy-policy a { color: var(--rw-logo); text-decoration: underline; text-underline-offset: 4px; }
+</style>

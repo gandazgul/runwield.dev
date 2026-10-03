@@ -16,8 +16,8 @@ origin: "internal"
 userVerifiedAt: null
 routingIntent: "PLANNED_CHANGE"
 sessionName: "RunWield Privacy Page"
-status: "in_progress"
 targetBranch: "main"
+status: "implemented"
 ---
 
 # Publish the RunWield Privacy Policy at /privacy

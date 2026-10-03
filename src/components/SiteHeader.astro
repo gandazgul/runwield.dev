@@ -1,7 +1,8 @@
 ---
 const isBlog = Astro.url.pathname.startsWith("/blog");
+const isHome = Astro.url.pathname === "/";
 ---
-<header class:list={["site-header", { "blog-header": isBlog }]}>
+<header class:list={["site-header", { "blog-header": !isHome }]}>
     <a class="brand" href="/" aria-label="RunWield home">
         <img src="/logo.svg" alt="" width="42" height="33"/>
         <span>RunWield</span>
