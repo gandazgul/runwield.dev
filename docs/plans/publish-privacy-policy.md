@@ -17,7 +17,13 @@ userVerifiedAt: null
 routingIntent: "PLANNED_CHANGE"
 sessionName: "RunWield Privacy Page"
 targetBranch: "main"
-status: "validated_reviewer"
+status: "validated"
+validatedCommit: "6b37ba23dc147c747f063d8335b90f3e72a82fc7"
+workRecord:
+  status: "generated"
+  recordId: "cd9852bd-6f0f-4183-b31e-1030e495f56d"
+  path: "docs/work-records/2026-10-03-added-runwield-privacy-policy-and-footer-link.md"
+  lastAttemptAt: "2026-10-03T16:04:07.578Z"
 ---
 
 # Publish the RunWield Privacy Policy at /privacy
