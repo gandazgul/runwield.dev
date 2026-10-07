@@ -15,6 +15,14 @@ deno task build
 deno task preview
 ```
 
+## Features page
+
+`/features` presents expandable categories using the existing site style. Curated copy lives in `src/data/features.ts`;
+the detailed source inventory is `docs/user-facing-features.md` in the sibling RunWield repository. Update both when
+capabilities change, and keep future work and provider limitations explicit. See `docs/design/features.md`.
+
+Preview locally with `deno task dev` and open `/features`.
+
 ## Publish a blog post
 
 Add one Markdown file in `src/pages/blog/`, for example `src/pages/blog/my-post.md`:

@@ -1,0 +1,73 @@
+---
+import BlogLayout from "../layouts/BlogLayout.astro";
+import { featureGroups } from "../data/features";
+import "../styles/features.css";
+---
+<BlogLayout title="Features" description="Explore RunWield’s planning, validation, project memory, browser Workspace, model choice, and local customization.">
+  <div class="features-page">
+    <header class="features-intro">
+      <h1>Build the change.<br /><span>Keep what you learn.</span></h1>
+      <div class="features-lede">
+        <p>RunWield brings planning, execution, review, and project memory into one coding workflow. Every recorded decision gives the next change a better place to start.</p>
+        <a class="features-text-link" href="/#beta">Try RunWield <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <div class="features-layout">
+      <aside class="features-index">
+        <nav aria-label="Feature categories">
+          <p>Explore features</p>
+          {featureGroups.map(group => <a href={`#${group.id}`}>{group.category}</a>)}
+        </nav>
+      </aside>
+      <div class="features-groups">
+        {featureGroups.map((group, index) => (
+          <section class="feature-group" id={group.id} aria-labelledby={`${group.id}-title`}>
+            <div class="feature-meta"><span>{group.category}</span><span>{group.modules.length} areas</span></div>
+            <h2 id={`${group.id}-title`}>{group.title}</h2>
+            <p class="feature-description">{group.description}</p>
+            <details class="feature-details" open={index === 0}>
+              <summary>
+                <span class="feature-show">Explore details</span><span class="feature-hide">Hide details</span>
+                <span class="feature-sr">for {group.category}</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M12 5v14" /></svg>
+              </summary>
+              <div class="feature-content">
+                {group.image && <figure class="feature-figure"><a href={group.image} aria-label={`View full-size ${group.imageCaption}`}><img src={group.image} alt={group.imageAlt} loading="lazy" width={group.imageWidth} height={group.imageHeight} /></a><figcaption>{group.imageCaption}</figcaption></figure>}
+                <div class="feature-modules">
+                  {group.modules.map(module => <section class="feature-module"><h3>{module.title}</h3>{module.paragraphs.map(paragraph => <p>{paragraph}</p>)}</section>)}
+                </div>
+                <a class="features-text-link feature-docs" href={group.link}>{group.linkLabel}<span aria-hidden="true">↗</span></a>
+              </div>
+            </details>
+          </section>
+        ))}
+        <section class="features-next" aria-labelledby="next-title">
+          <h2 id="next-title">Where RunWield is headed</h2>
+          <p>Next up: Connect will bring RunWield’s workflow into external coding hosts, starting with Claude Code. We’re also planning reusable software-factory components, broader team workflows, and a metrics dashboard with export. These features are on the roadmap.</p>
+        </section>
+      </div>
+    </div>
+    <section class="features-cta" aria-labelledby="try-title">
+      <div><h2 id="try-title">Try it on a change<br />that matters to you.</h2><p>Bring a real codebase. Start with a question, a quick fix, or a Plan.</p></div>
+      <a class="primary-action" href="/#beta">Try it with me <span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</BlogLayout>
+<script>
+  // Opening a category link reveals its detail, including on a direct URL visit.
+  function revealCategory() {
+    const id = window.location.hash.slice(1);
+    const section = document.getElementById(id);
+    const details = section?.querySelector("details");
+    if (details) details.open = true;
+  }
+  revealCategory();
+  window.addEventListener("hashchange", revealCategory);
+  document.querySelectorAll<HTMLAnchorElement>(".features-index a").forEach(link => {
+    link.addEventListener("click", () => {
+      const details = document.getElementById(link.hash.slice(1))?.querySelector("details");
+      if (details) details.open = true;
+    });
+  });
+</script>

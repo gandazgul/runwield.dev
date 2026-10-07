@@ -10,6 +10,8 @@ RunWield is source-available and free to use, but it is not open source yet. Con
 
 ## Product
 
+- [Features](https://runwield.dev/features): Project learning, planning, execution and review, Workspace, models, and customization.
+
 - [Wield Notes](https://runwield.dev/blog): Engineering judgment in the age of AI.
 
 - [RunWield README](https://raw.githubusercontent.com/gandazgul/runwield/main/README.md): Product overview, installation, workflow, architecture, current status, and license summary.
