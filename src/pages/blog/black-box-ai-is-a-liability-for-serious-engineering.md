@@ -7,6 +7,8 @@ author: "Carlos Ravelo"
 authorUrl: "https://github.com/gandazgul"
 ---
 
+<img src="/images/black-box-ai.png" width="1376" height="768" alt="A surgical team surrounds a black box on an operating table. Text reads: Trusting Your Codebase To A Black Box Is Not A Strategy." />
+
 AI is fundamentally reshaping the software development landscape. The conversation has moved far beyond simple code completion; teams are now striving to build 'lights out software factories' where autonomous agents make changes on their own. The potential is immense, but so are the risks. As we rush to harness this power, a critical distinction is being ignored, one that separates a helpful assistant from a professional liability: the difference between a 'black box' and a transparent partner.
 
 For many developers, the current generation of AI tools operates as an inscrutable black box. You provide a prompt, and it produces an output. The code might work, it might even be elegant, but the process behind its creation is a complete mystery. You cannot see the AI’s reasoning, the trade-offs it considered, or the assumptions it made. This is more than just a curiosity; for any serious engineering team, it is an unacceptable risk.
